@@ -28,11 +28,39 @@ public class MallUserService {
 	
 	@Autowired
 	RedisService redisService;
-	
+
 	public MallUser getById(long id) {
-		return mallUserDao.getById(id);
+		//取缓存
+		MallUser user = redisService.get(MallUserKey.getById, ""+id, MallUser.class);
+		if(user != null) {
+			return user;
+		}
+		//取数据库
+		user = mallUserDao.getById(id);
+		if(user != null) {
+			redisService.set(MallUserKey.getById, ""+id, user);
+		}
+		return user;
 	}
-	
+
+	public boolean updatePassword(String token, long id, String formPass) {
+		//取user
+		MallUser user = getById(id);
+		if(user == null) {
+			throw new GlobalException(CodeMsg.MOBILE_NOT_EXIST);
+		}
+		//更新数据库
+		MallUser toBeUpdate = new MallUser();
+		toBeUpdate.setId(id);
+		toBeUpdate.setPassword(MD5Util.formPassToDBPass(formPass, user.getSalt()));
+		mallUserDao.update(toBeUpdate);
+		//处理缓存
+		redisService.delete(MallUserKey.getById, ""+id);
+		user.setPassword(toBeUpdate.getPassword());
+		redisService.set(MallUserKey.token, token, user);
+		return true;
+	}
+
 
 	public MallUser getByToken(HttpServletResponse response, String token) {
 		if(StringUtils.isEmpty(token)) {
@@ -47,7 +75,7 @@ public class MallUserService {
 	}
 	
 
-	public boolean login(HttpServletResponse response, LoginVo loginVo) {
+	public String login(HttpServletResponse response, LoginVo loginVo) {
 		if(loginVo == null) {
 			throw new GlobalException(CodeMsg.SERVER_ERROR);
 		}
@@ -68,7 +96,7 @@ public class MallUserService {
 		//生成cookie
 		String token = UUIDUtil.uuid();
 		addCookie(response, token, user);
-		return true;
+		return token;
 	}
 	
 	private void addCookie(HttpServletResponse response, String token, MallUser user) {

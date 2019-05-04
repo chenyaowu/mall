@@ -2,6 +2,8 @@ package com.chen.mall.service;
 
 import java.util.Date;
 
+import com.chen.mall.redis.OrderKey;
+import com.chen.mall.redis.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,11 +19,12 @@ public class OrderService {
 	
 	@Autowired
 	OrderDao orderDao;
-	
-	public MallOrder getMallOrderByUserIdGoodsId(long userId, long goodsId) {
-		return orderDao.getMallOrderByUserIdGoodsId(userId, goodsId);
-	}
+	@Autowired
+	RedisService redisService;
 
+	public MallOrder getMallOrderByUserIdGoodsId(long userId, long goodsId) {
+		return redisService.get(OrderKey.getMallOrderByUidGid, ""+userId+"_"+goodsId, MallOrder.class);
+	}
 	@Transactional
 	public OrderInfo createOrder(MallUser user, GoodsVo goods) {
 		OrderInfo orderInfo = new OrderInfo();
@@ -41,6 +44,10 @@ public class OrderService {
 		mallOrder.setUserId(user.getId());
 		orderDao.insertMallOrder(mallOrder);
 		return orderInfo;
+	}
+
+	public OrderInfo getOrderById(long orderId) {
+		return orderDao.getOrderById(orderId);
 	}
 	
 }

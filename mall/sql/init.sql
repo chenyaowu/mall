@@ -63,3 +63,7 @@ CREATE TABLE `mall_order`(
 `goods_id` BIGINT(20) DEFAULT NULL COMMENT '商品id',
 PRIMARY KEY (`id`)
 )ENGINE=INNODB DEFAULT CHARSET = utf8mb4;
+
+ALTER TABLE `mall_order`
+ADD UNIQUE INDEX `u_uid` (`user_id`, `goods_id`) USING BTREE ;
+

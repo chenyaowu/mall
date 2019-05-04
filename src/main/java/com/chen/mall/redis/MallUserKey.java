@@ -7,4 +7,5 @@ public class MallUserKey extends BasePrefix{
 		super(expireSeconds, prefix);
 	}
 	public static MallUserKey token = new MallUserKey(TOKEN_EXPIRE, "tk");
+	public static MallUserKey getById = new MallUserKey(0, "id");
 }
