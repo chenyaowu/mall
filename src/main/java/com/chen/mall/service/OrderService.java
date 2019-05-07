@@ -37,17 +37,24 @@ public class OrderService {
 		orderInfo.setOrderChannel(1);
 		orderInfo.setStatus(0);
 		orderInfo.setUserId(user.getId());
-		long orderId = orderDao.insert(orderInfo);
+		orderDao.insert(orderInfo);
 		MallOrder mallOrder = new MallOrder();
 		mallOrder.setGoodsId(goods.getId());
-		mallOrder.setOrderId(orderId);
+		mallOrder.setOrderId(orderInfo.getId());
 		mallOrder.setUserId(user.getId());
 		orderDao.insertMallOrder(mallOrder);
+
+		redisService.set(OrderKey.getMallOrderByUidGid, ""+user.getId()+"_"+goods.getId(), mallOrder);
+
 		return orderInfo;
 	}
 
 	public OrderInfo getOrderById(long orderId) {
 		return orderDao.getOrderById(orderId);
 	}
-	
+
+	public void deleteOrders() {
+		orderDao.deleteOrders();
+		orderDao.deleteMallOrders();
+	}
 }

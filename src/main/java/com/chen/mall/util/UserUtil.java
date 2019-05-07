@@ -21,7 +21,7 @@ import com.chen.mall.domain.MallUser;
 public class UserUtil {
 	
 	private static void createUser(int count) throws Exception{
-		List<MallUser> users = new ArrayList<MallUser>(count);
+		List<MallUser> users = new ArrayList<>(count);
 		//生成用户
 		for(int i=0;i<count;i++) {
 			MallUser user = new MallUser();
