@@ -13,18 +13,18 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.alibaba.fastjson.JSON;
-import com.imooc.miaosha.domain.MiaoshaUser;
-import com.imooc.miaosha.redis.AccessKey;
-import com.imooc.miaosha.redis.RedisService;
-import com.imooc.miaosha.result.CodeMsg;
-import com.imooc.miaosha.result.Result;
-import com.imooc.miaosha.service.MiaoshaUserService;
+import com.chen.mall.domain.MallUser;
+import com.chen.mall.redis.AccessKey;
+import com.chen.mall.redis.RedisService;
+import com.chen.mall.result.CodeMsg;
+import com.chen.mall.result.Result;
+import com.chen.mall.service.MallUserService;
 
 @Service
 public class AccessInterceptor  extends HandlerInterceptorAdapter{
 	
 	@Autowired
-	MiaoshaUserService userService;
+	MallUserService userService;
 	
 	@Autowired
 	RedisService redisService;
@@ -33,7 +33,7 @@ public class AccessInterceptor  extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		if(handler instanceof HandlerMethod) {
-			MiaoshaUser user = getUser(request, response);
+			MallUser user = getUser(request, response);
 			UserContext.setUser(user);
 			HandlerMethod hm = (HandlerMethod)handler;
 			AccessLimit accessLimit = hm.getMethodAnnotation(AccessLimit.class);
@@ -76,9 +76,9 @@ public class AccessInterceptor  extends HandlerInterceptorAdapter{
 		out.close();
 	}
 
-	private MiaoshaUser getUser(HttpServletRequest request, HttpServletResponse response) {
-		String paramToken = request.getParameter(MiaoshaUserService.COOKI_NAME_TOKEN);
-		String cookieToken = getCookieValue(request, MiaoshaUserService.COOKI_NAME_TOKEN);
+	private MallUser getUser(HttpServletRequest request, HttpServletResponse response) {
+		String paramToken = request.getParameter(MallUserService.COOKI_NAME_TOKEN);
+		String cookieToken = getCookieValue(request, MallUserService.COOKI_NAME_TOKEN);
 		if(StringUtils.isEmpty(cookieToken) && StringUtils.isEmpty(paramToken)) {
 			return null;
 		}

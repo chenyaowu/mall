@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9dc413ff-8841-4ca4-8a06-06a8da7f842f" name="Default" comment="接口限流">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/chen/mall/access/AccessInterceptor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/chen/mall/access/AccessLimit.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/chen/mall/access/UserContext.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/chen/mall/controller/MallController.java" afterPath="$PROJECT_DIR$/src/main/java/com/chen/mall/controller/MallController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/chen/mall/redis/MallKey.java" afterPath="$PROJECT_DIR$/src/main/java/com/chen/mall/redis/MallKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/chen/mall/result/CodeMsg.java" afterPath="$PROJECT_DIR$/src/main/java/com/chen/mall/result/CodeMsg.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/chen/mall/service/MallService.java" afterPath="$PROJECT_DIR$/src/main/java/com/chen/mall/service/MallService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/goods_detail.htm" afterPath="$PROJECT_DIR$/src/main/resources/static/goods_detail.htm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/chen/mall/redis/AccessKey.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/chen/mall/access/AccessInterceptor.java" afterPath="$PROJECT_DIR$/src/main/java/com/chen/mall/access/AccessInterceptor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,11 +19,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="AccessLimit.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AccessLimit.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/chen/mall/access/AccessLimit.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="370">
               <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccessInterceptor.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/chen/mall/access/AccessInterceptor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-379">
+              <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -54,15 +57,15 @@
       <find>mysql</find>
       <find>Miao</find>
       <find>doMallsha</find>
-      <find>imooc.miaosha</find>
       <find>miaosha</find>
       <find>mallService.mall</find>
+      <find>imooc.miaosha</find>
       <find>Miaosha</find>
     </findStrings>
     <replaceStrings>
       <replace>mall_goods</replace>
-      <replace>chen.mall</replace>
       <replace>mall</replace>
+      <replace>chen.mall</replace>
       <replace>Mall</replace>
     </replaceStrings>
   </component>
@@ -77,8 +80,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/chen/mall/exception/GlobalException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/chen/mall/redis/MiaoshaUserKey.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/chen/mall/validator/ValidatorUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/chen/mall/validator/IsMobileValidator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/chen/mall/util/ValidatorUtil.java" />
@@ -128,6 +129,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/chen/mall/access/AccessLimit.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/chen/mall/access/UserContext.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/chen/mall/controller/MallController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/chen/mall/access/AccessInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/chen/mall/redis/AccessKey.java" />
       </list>
     </option>
   </component>
@@ -233,15 +236,6 @@
               <item name="mall" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mall" type="462c0819:PsiDirectoryNode" />
-              <item name="access" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -276,9 +270,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\IdeaProjects\mall\src\main\java\com\chen\mall\redis" />
       <recent name="F:\IdeaProjects\mall\src\main\java\com\chen\mall" />
       <recent name="F:\IdeaProjects\mall\src\main\resources\static" />
-      <recent name="F:\IdeaProjects\mall\src\main\java\com\chen\mall\redis" />
       <recent name="F:\IdeaProjects\mall\src\main\java\com\chen\mall\vo" />
       <recent name="F:\IdeaProjects\mall\src\main\java\com\chen\mall\controller" />
     </key>
@@ -442,7 +436,7 @@
       <workItem from="1557068759097" duration="681000" />
       <workItem from="1557232204487" duration="10337000" />
       <workItem from="1557243584064" duration="139000" />
-      <workItem from="1557319611691" duration="1422000" />
+      <workItem from="1557319611691" duration="1505000" />
     </task>
     <task id="LOCAL-00001" summary="mybatis&#10;redis">
       <created>1555602884434</created>
@@ -483,11 +477,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59288000" />
+    <option name="totallyTimeSpent" value="59371000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1034" y="7" width="1428" height="1032" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -502,7 +495,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30428362" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30428362" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -544,20 +537,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chen/mall/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar!/ch/qos/logback/core/db/dialect/DBUtil.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/goods_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -923,6 +902,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
           <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/chen/mall/redis/AccessKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/chen/mall/access/AccessInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-379">
+          <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
           <folding />
         </state>
       </provider>
